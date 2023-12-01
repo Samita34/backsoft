@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import backend.backsoft.entity.Comentario;
 import backend.backsoft.repository.ComentarioRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class ComentarioService {
     }
 
     public Comentario guardarComentario(Comentario comentario) {
+        comentario.setFechaHora(LocalDateTime.now());
         return comentarioRepository.save(comentario);
     }
 
