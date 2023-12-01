@@ -1,0 +1,15 @@
+POST http://localhost:8080/api/v1/usuario/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "nombre": "NombreEjemplo",
+    "apellido": "ApellidoEjemplo",
+    "nombreUsuario": "UsuarioEjemplo",
+    "correo": "correo@example.com",
+    "fotoPerfil": null
+}
+
+###Obetener todas los usuarios
+
+GET http://localhost:8080/api/v1/usuario
