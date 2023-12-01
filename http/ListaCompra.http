@@ -1,0 +1,35 @@
+# Crear una lista de compras
+POST http://localhost:8080/api/v1/lista-compras/crear
+Content-Type: application/json
+Accept: application/json
+
+{
+    "usuario": {
+        "userID": 1
+    },
+    "nombreLista": "Mi Lista de Compras"
+}
+
+# Obtener una lista de compras por ID
+GET http://localhost:8080/api/v1/lista-compras/1
+Accept: application/json
+
+# Listar todas las listas de compras
+GET http://localhost:8080/api/v1/lista-compras/listar
+Accept: application/json
+
+# Actualizar una lista de compras por ID
+PUT http://localhost:8080/api/v1/lista-compras/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "usuario": {
+        "userID": 1
+    },
+    "nombreLista": "Mi Lista de Compras Actualizada"
+}
+
+# Eliminar una lista de compras por ID
+DELETE http://localhost:8080/api/v1/lista-compras/1
+Accept: application/json

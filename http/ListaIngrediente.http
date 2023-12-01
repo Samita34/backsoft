@@ -1,0 +1,39 @@
+# Crear una lista de ingredientes en una lista de compras
+POST http://localhost:8080/api/v1/lista-ingredientes/crear
+Content-Type: application/json
+Accept: application/json
+
+{
+    "listaDeCompras": {
+        "listaID": 1
+    },
+    "ingrediente": {
+        "ingredienteID": 1
+    }
+}
+
+# Obtener una lista de ingredientes por ID
+GET http://localhost:8080/api/v1/lista-ingredientes/1
+Accept: application/json
+
+# Listar todas las listas de ingredientes
+GET http://localhost:8080/api/v1/lista-ingredientes/listar
+Accept: application/json
+
+# Actualizar una lista de ingredientes por ID
+PUT http://localhost:8080/api/v1/lista-ingredientes/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "listaDeCompras": {
+        "listaID": 2
+    },
+    "ingrediente": {
+        "ingredienteID": 3
+    }
+}
+
+# Eliminar una lista de ingredientes por ID
+DELETE http://localhost:8080/api/v1/lista-ingredientes/1
+Accept: application/json
