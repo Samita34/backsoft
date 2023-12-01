@@ -2,42 +2,44 @@ package backend.backsoft.entity;
 
 import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name = "Recetas")
+@Table(name = "recetas")
 public class Receta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "RecetaID")
+    @Column(name = "recetaid")
     private Integer recetaID;
 
-    @Column(name = "UserID", nullable = false)
+    @Column(name = "userid", nullable = false)
     private Integer userID;
 
-    @Column(name = "NombreReceta", nullable = false, length = 255)
+    @Column(name = "nombrereceta", nullable = false, length = 255)
     private String nombreReceta;
 
-    @Column(name = "Procedimiento", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "procedimiento", nullable = false, columnDefinition = "TEXT")
     private String procedimiento;
 
-    @Column(name = "TiempoPreparacion", nullable = false)
+    @Column(name = "tiempopreparacion", nullable = false)
     private Integer tiempoPreparacion;
 
-    @Column(name = "Porciones", nullable = false)
+    @Column(name = "porciones", nullable = false)
     private Integer porciones;
 
-    @Column(name = "DescripcionCorta", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "descripcioncorta", nullable = false, columnDefinition = "TEXT")
     private String descripcionCorta;
 
     @Lob
-    @Column(name = "ImagenReceta", nullable = false)
+    @Column(name = "imagenreceta", nullable = false)
     private byte[] imagenReceta;
 
-    @Column(name = "Categoria_CategoriaID", nullable = false)
+    @Column(name = "categoria_categoriaid", nullable = false)
     private Integer categoriaCategoriaID;
 
-    // Getters and setters
-
+    // Getters y setters con @JsonProperty
+    @JsonProperty("recetaid")
     public Integer getRecetaID() {
         return recetaID;
     }
@@ -46,6 +48,7 @@ public class Receta {
         this.recetaID = recetaID;
     }
 
+    @JsonProperty("userid")
     public Integer getUserID() {
         return userID;
     }
@@ -54,6 +57,7 @@ public class Receta {
         this.userID = userID;
     }
 
+    @JsonProperty("nombrereceta")
     public String getNombreReceta() {
         return nombreReceta;
     }
@@ -62,6 +66,7 @@ public class Receta {
         this.nombreReceta = nombreReceta;
     }
 
+    @JsonProperty("procedimiento")
     public String getProcedimiento() {
         return procedimiento;
     }
@@ -70,6 +75,7 @@ public class Receta {
         this.procedimiento = procedimiento;
     }
 
+    @JsonProperty("tiempopreparacion")
     public Integer getTiempoPreparacion() {
         return tiempoPreparacion;
     }
@@ -78,6 +84,7 @@ public class Receta {
         this.tiempoPreparacion = tiempoPreparacion;
     }
 
+    @JsonProperty("porciones")
     public Integer getPorciones() {
         return porciones;
     }
@@ -86,6 +93,7 @@ public class Receta {
         this.porciones = porciones;
     }
 
+    @JsonProperty("descripcioncorta")
     public String getDescripcionCorta() {
         return descripcionCorta;
     }
@@ -94,6 +102,7 @@ public class Receta {
         this.descripcionCorta = descripcionCorta;
     }
 
+    @JsonProperty("imagenreceta")
     public byte[] getImagenReceta() {
         return imagenReceta;
     }
@@ -102,6 +111,7 @@ public class Receta {
         this.imagenReceta = imagenReceta;
     }
 
+    @JsonProperty("categoria_categoriaid")
     public Integer getCategoriaCategoriaID() {
         return categoriaCategoriaID;
     }
@@ -110,5 +120,5 @@ public class Receta {
         this.categoriaCategoriaID = categoriaCategoriaID;
     }
 
-    // toString, equals and hashCode methods can be added as necessary
+    // Los métodos toString, equals y hashCode pueden ser agregados según sea necesario.
 }

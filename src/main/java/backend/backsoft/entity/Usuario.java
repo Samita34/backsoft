@@ -5,19 +5,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Lob;
-import jakarta.persistence.UniqueConstraint;
-
 
 
 @Entity
-@Table(name = "Usuarios", uniqueConstraints = {@UniqueConstraint(columnNames = {"NombreUsuario"})})
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userID;
+    private Integer userid;
 
     @Column(nullable = false, length = 100)
     private String nombre;
@@ -25,22 +26,22 @@ public class Usuario {
     @Column(nullable = false, length = 100)
     private String apellido;
 
-    @Column(nullable = false, length = 50)
-    private String nombreUsuario;
+    @Column(length = 50)
+    private String nombreusuario;
 
     @Column(nullable = false, length = 255)
     private String correo;
 
     @Lob
-    private byte[] fotoPerfil;
+    private byte[] fotoperfil;
 
     // Getters y setters
+    @JsonProperty("userid")
     public Integer getUserID() {
-        return userID;
+        return userid;
     }
-
     public void setUserID(Integer userID) {
-        this.userID = userID;
+        this.userid = userID;
     }
 
     public String getNombre() {
@@ -59,12 +60,13 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+    @JsonProperty("nombreusuario")
     public String getNombreUsuario() {
-        return nombreUsuario;
+        return nombreusuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setNombreUsuario(String nombreusuario) {
+        this.nombreusuario = nombreusuario;
     }
 
     public String getCorreo() {
@@ -75,11 +77,12 @@ public class Usuario {
         this.correo = correo;
     }
 
+    @JsonProperty("fotoperfil")
     public byte[] getFotoPerfil() {
-        return fotoPerfil;
+        return fotoperfil;
     }
 
-    public void setFotoPerfil(byte[] fotoPerfil) {
-        this.fotoPerfil = fotoPerfil;
+    public void setFotoPerfil(byte[] fotoperfil) {
+        this.fotoperfil = fotoperfil;
     }
 }

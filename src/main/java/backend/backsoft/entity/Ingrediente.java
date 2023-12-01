@@ -7,26 +7,28 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name = "Ingredientes")
+@Table(name = "ingredientes")
 public class Ingrediente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IngredienteID")
+    @Column(name = "ingredienteid")
     private Integer ingredienteID;
 
-    @Column(name = "Nombre", nullable = false, length = 100)
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @Column(name = "Tipo", length = 50)
+    @Column(name = "tipo", length = 50)
     private String tipo;
 
-    @Column(name = "Cantidad", nullable = false)
+    @Column(name = "cantidad", nullable = false)
     private Integer cantidad;
 
-    // Getters y setters
-
+    // Getters y setters con @JsonProperty
+    @JsonProperty("ingredienteid")
     public Integer getIngredienteID() {
         return ingredienteID;
     }
@@ -35,6 +37,7 @@ public class Ingrediente {
         this.ingredienteID = ingredienteID;
     }
 
+    @JsonProperty("nombre")
     public String getNombre() {
         return nombre;
     }
@@ -43,6 +46,7 @@ public class Ingrediente {
         this.nombre = nombre;
     }
 
+    @JsonProperty("tipo")
     public String getTipo() {
         return tipo;
     }
@@ -51,6 +55,7 @@ public class Ingrediente {
         this.tipo = tipo;
     }
 
+    @JsonProperty("cantidad")
     public Integer getCantidad() {
         return cantidad;
     }

@@ -3,28 +3,30 @@ package backend.backsoft.entity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name = "RecetasGuardadas")
+@Table(name = "recetasguardadas")
 public class RecetaGuardada {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "RecetasGuardadasID")
+    @Column(name = "recetasguardadasid")
     private Integer recetasGuardadasID;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "UserID", referencedColumnName = "UserID")
+    @JoinColumn(name = "userid", referencedColumnName = "userid")
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "RecetaID", referencedColumnName = "RecetaID")
+    @JoinColumn(name = "recetaid", referencedColumnName = "recetaid")
     private Receta receta;
 
-    @Column(name = "FechaHora", nullable = false)
+    @Column(name = "fechahora", nullable = false)
     private LocalDateTime fechaHora;
 
-    // Getters y setters
-
+    // Getters y setters con @JsonProperty
+    @JsonProperty("recetasguardadasid")
     public Integer getRecetasGuardadasID() {
         return recetasGuardadasID;
     }
@@ -33,6 +35,7 @@ public class RecetaGuardada {
         this.recetasGuardadasID = recetasGuardadasID;
     }
 
+    @JsonProperty("userid")
     public Usuario getUsuario() {
         return usuario;
     }
@@ -41,6 +44,7 @@ public class RecetaGuardada {
         this.usuario = usuario;
     }
 
+    @JsonProperty("recetaid")
     public Receta getReceta() {
         return receta;
     }
@@ -49,6 +53,7 @@ public class RecetaGuardada {
         this.receta = receta;
     }
 
+    @JsonProperty("fechahora")
     public LocalDateTime getFechaHora() {
         return fechaHora;
     }
@@ -57,5 +62,5 @@ public class RecetaGuardada {
         this.fechaHora = fechaHora;
     }
 
-    // toString, equals y hashCode methods can be added as necessary
+    // Los métodos toString, equals y hashCode pueden ser agregados según sea necesario.
 }

@@ -3,29 +3,31 @@ package backend.backsoft.entity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name = "Calificaciones")
+@Table(name = "calificaciones")
 public class Calificacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CalificacionID")
+    @Column(name = "calificacionid")
     private Integer calificacionID;
 
-    @Column(name = "RecetaID", nullable = false)
+    @Column(name = "recetaid", nullable = false)
     private Integer recetaID;
 
-    @Column(name = "UserID", nullable = false)
+    @Column(name = "userid", nullable = false)
     private Integer userID;
 
-    @Column(name = "Puntuacion")
+    @Column(name = "puntuacion")
     private Integer puntuacion;
 
-    @Column(name = "FechaHora")
+    @Column(name = "fechahora")
     private LocalDateTime fechaHora;
 
-    // Getters y setters
-
+    // Getters y setters con @JsonProperty
+    @JsonProperty("calificacionid")
     public Integer getCalificacionID() {
         return calificacionID;
     }
@@ -34,6 +36,7 @@ public class Calificacion {
         this.calificacionID = calificacionID;
     }
 
+    @JsonProperty("recetaid")
     public Integer getRecetaID() {
         return recetaID;
     }
@@ -42,6 +45,7 @@ public class Calificacion {
         this.recetaID = recetaID;
     }
 
+    @JsonProperty("userid")
     public Integer getUserID() {
         return userID;
     }
@@ -50,6 +54,7 @@ public class Calificacion {
         this.userID = userID;
     }
 
+    @JsonProperty("puntuacion")
     public Integer getPuntuacion() {
         return puntuacion;
     }
@@ -62,6 +67,7 @@ public class Calificacion {
         }
     }
 
+    @JsonProperty("fechahora")
     public LocalDateTime getFechaHora() {
         return fechaHora;
     }
@@ -70,5 +76,5 @@ public class Calificacion {
         this.fechaHora = fechaHora;
     }
 
-    // toString, equals y hashCode methods can be added as necessary
+    // Los métodos toString, equals y hashCode pueden ser agregados según sea necesario.
 }
