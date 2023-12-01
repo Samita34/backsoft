@@ -1,0 +1,45 @@
+###Crear receta###
+POST http://localhost:8080/api/v1/receta/create
+Content-Type: application/json
+Accept: application/json
+
+{
+    "userID": 1,
+    "nombreReceta": "Receta de Ejemplo",
+    "procedimiento": "Pasos detallados para preparar la receta...",
+    "tiempoPreparacion": 45,
+    "porciones": 4,
+    "descripcionCorta": "Una deliciosa receta de ejemplo.",
+    "imagenReceta": "aW1nYW5fZGVmYXVsdF9oZXJlCg==",
+    "categoriaCategoriaID": 1
+}
+
+
+###Obtener receta por ID###
+GET http://localhost:8080/api/v1/receta/1
+Accept: application/json
+
+
+###Obtener todas las recetas###
+GET http://localhost:8080/api/v1/receta
+Accept: application/json
+
+###Actualizar receta por ID###
+PUT http://localhost:8080/api/v1/receta/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "userID": 1,
+    "nombreReceta": "Receta Actualizada",
+    "procedimiento": "Pasos actualizados para preparar la receta...",
+    "tiempoPreparacion": 60,
+    "porciones": 6,
+    "descripcionCorta": "Una receta actualizada y mejorada.",
+    "imagenReceta": "base64_encoded_updated_image_data_here",
+    "categoriaCategoriaID": 3
+}
+
+###Eliminar por ID###
+DELETE http://localhost:8080/api/v1/receta/1
+Accept: application/json
