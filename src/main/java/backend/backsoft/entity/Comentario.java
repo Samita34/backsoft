@@ -3,38 +3,31 @@ package backend.backsoft.entity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name = "Comentarios")
+@Table(name = "comentarios")
 public class Comentario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ComentarioID")
+    @Column(name = "comentarioid")
     private Integer comentarioID;
 
-    /* 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "RecetaID", referencedColumnName = "RecetaID")
-    private Receta receta;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "UserID", referencedColumnName = "UserID")
-    private Usuario usuario;*/
-
-    @Column(name = "RecetaID", nullable = false)
+    @Column(name = "recetaid", nullable = false)
     private Integer recetaID;
 
-    @Column(name = "UserID", nullable = false)
+    @Column(name = "userid", nullable = false)
     private Integer userID;
 
-    @Column(name = "TextoComentario", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "textocomentario", nullable = false, columnDefinition = "TEXT")
     private String textoComentario;
 
-    @Column(name = "FechaHora", nullable = false)
+    @Column(name = "fechahora", nullable = false)
     private LocalDateTime fechaHora;
 
-    // Getters y setters
-
+    // Getters y setters con @JsonProperty
+    @JsonProperty("comentarioid")
     public Integer getComentarioID() {
         return comentarioID;
     }
@@ -42,7 +35,8 @@ public class Comentario {
     public void setComentarioID(Integer comentarioID) {
         this.comentarioID = comentarioID;
     }
-
+    
+    @JsonProperty("recetaid")
     public Integer getRecetaID() {
         return recetaID;
     }
@@ -51,6 +45,7 @@ public class Comentario {
         this.recetaID = recetaID;
     }
 
+    @JsonProperty("userid")
     public Integer getUserID() {
         return userID;
     }
@@ -59,6 +54,7 @@ public class Comentario {
         this.userID = userID;
     }
 
+    @JsonProperty("textocomentario")
     public String getTextoComentario() {
         return textoComentario;
     }
@@ -67,6 +63,7 @@ public class Comentario {
         this.textoComentario = textoComentario;
     }
 
+    @JsonProperty("fechahora")
     public LocalDateTime getFechaHora() {
         return fechaHora;
     }
@@ -75,5 +72,5 @@ public class Comentario {
         this.fechaHora = fechaHora;
     }
 
-    // toString, equals y hashCode methods can be added as necessary
+    // Los métodos toString, equals y hashCode pueden ser agregados según sea necesario.
 }

@@ -4,7 +4,7 @@ public class UsuarioDTO {
     private Integer userId;
     private String nombre;
     private String apellido;
-    private String nombreUsuario;
+    private String nombreusuario;
     private String correo;
     // No incluyo FotoPerfil ya que es un BLOB y normalmente no se transfiere directamente en DTOs
 
@@ -35,11 +35,11 @@ public class UsuarioDTO {
     }
 
     public String getNombreUsuario() {
-        return nombreUsuario;
+        return nombreusuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setNombreUsuario(String nombreusuario) {
+        this.nombreusuario = nombreusuario;
     }
 
     public String getCorreo() {

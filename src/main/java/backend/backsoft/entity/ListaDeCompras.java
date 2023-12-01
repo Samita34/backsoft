@@ -2,24 +2,26 @@ package backend.backsoft.entity;
 
 import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name = "ListasDeCompras")
+@Table(name = "listasdecompras")
 public class ListaDeCompras {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ListaID")
+    @Column(name = "listaid")
     private Integer listaID;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "UserID", referencedColumnName = "UserID")
+    @JoinColumn(name = "userid", referencedColumnName = "userid")
     private Usuario usuario;
 
-    @Column(name = "NombreLista", length = 255)
+    @Column(name = "nombrelista", length = 255)
     private String nombreLista;
 
-    // Getters y setters
-
+    // Getters y setters con @JsonProperty
+    @JsonProperty("listaid")
     public Integer getListaID() {
         return listaID;
     }
@@ -28,6 +30,7 @@ public class ListaDeCompras {
         this.listaID = listaID;
     }
 
+    @JsonProperty("usuario")
     public Usuario getUsuario() {
         return usuario;
     }
@@ -36,6 +39,7 @@ public class ListaDeCompras {
         this.usuario = usuario;
     }
 
+    @JsonProperty("nombrelista")
     public String getNombreLista() {
         return nombreLista;
     }
@@ -44,5 +48,5 @@ public class ListaDeCompras {
         this.nombreLista = nombreLista;
     }
 
-    // toString, equals y hashCode methods can be added as necessary
+    // Los métodos toString, equals y hashCode pueden ser agregados según sea necesario.
 }

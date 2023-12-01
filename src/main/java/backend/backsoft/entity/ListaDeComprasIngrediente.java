@@ -2,25 +2,27 @@ package backend.backsoft.entity;
 
 import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name = "ListasDeCompras_Ingredientes")
+@Table(name = "listasdecompras_ingredientes")
 public class ListaDeComprasIngrediente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "LisComprasIngredientesID")
+    @Column(name = "liscomprasingredientesid")
     private Integer lisComprasIngredientesID;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ListaID", referencedColumnName = "ListaID")
+    @JoinColumn(name = "listaid", referencedColumnName = "listaid")
     private ListaDeCompras listaDeCompras;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IngredienteID", referencedColumnName = "IngredienteID")
+    @JoinColumn(name = "ingredienteid", referencedColumnName = "ingredienteid")
     private Ingrediente ingrediente;
 
-    // Getters y setters
-
+    // Getters y setters con @JsonProperty
+    @JsonProperty("liscomprasingredientesid")
     public Integer getLisComprasIngredientesID() {
         return lisComprasIngredientesID;
     }
@@ -29,6 +31,7 @@ public class ListaDeComprasIngrediente {
         this.lisComprasIngredientesID = lisComprasIngredientesID;
     }
 
+    @JsonProperty("listaid")
     public ListaDeCompras getListaDeCompras() {
         return listaDeCompras;
     }
@@ -37,6 +40,7 @@ public class ListaDeComprasIngrediente {
         this.listaDeCompras = listaDeCompras;
     }
 
+    @JsonProperty("ingredienteid")
     public Ingrediente getIngrediente() {
         return ingrediente;
     }
@@ -45,5 +49,5 @@ public class ListaDeComprasIngrediente {
         this.ingrediente = ingrediente;
     }
 
-    // toString, equals y hashCode methods can be added as necessary
+    // Los métodos toString, equals y hashCode pueden ser agregados según sea necesario.
 }

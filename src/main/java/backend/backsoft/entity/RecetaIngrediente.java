@@ -2,25 +2,27 @@ package backend.backsoft.entity;
 
 import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name = "Recetas_Ingredientes")
+@Table(name = "recetas_ingredientes")
 public class RecetaIngrediente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ReceIngreID")
+    @Column(name = "receingreid")
     private Integer receIngreID;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "RecetaID", referencedColumnName = "RecetaID")
+    @JoinColumn(name = "recetaid", referencedColumnName = "recetaid")
     private Receta receta;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "IngredienteID", referencedColumnName = "IngredienteID")
+    @JoinColumn(name = "ingredienteid", referencedColumnName = "ingredienteid")
     private Ingrediente ingrediente;
 
-    // Getters y setters
-
+    // Getters y setters con @JsonProperty
+    @JsonProperty("receingreid")
     public Integer getReceIngreID() {
         return receIngreID;
     }
@@ -29,6 +31,7 @@ public class RecetaIngrediente {
         this.receIngreID = receIngreID;
     }
 
+    @JsonProperty("recetaid")
     public Receta getReceta() {
         return receta;
     }
@@ -37,6 +40,7 @@ public class RecetaIngrediente {
         this.receta = receta;
     }
 
+    @JsonProperty("ingredienteid")
     public Ingrediente getIngrediente() {
         return ingrediente;
     }
@@ -45,5 +49,5 @@ public class RecetaIngrediente {
         this.ingrediente = ingrediente;
     }
 
-    // toString, equals y hashCode methods can be added as necessary
+    // Los métodos toString, equals y hashCode pueden ser agregados según sea necesario.
 }
