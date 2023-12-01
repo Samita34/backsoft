@@ -1,0 +1,41 @@
+### Crear una Receta Guardada
+POST http://localhost:8080/api/v1/recetas-guardadas/crear
+Content-Type: application/json
+Accept: application/json
+
+{
+    "usuario": {
+        "userID": 1
+    },
+    "receta": {
+        "recetaID": 1
+    },
+    "fechaHora": "2023-11-30T14:30:00"
+}
+
+### Obtener una Receta Guardada por ID
+GET http://localhost:8080/api/v1/recetas-guardadas/1
+Accept: application/json
+
+### Listar todas las Recetas Guardadas
+GET http://localhost:8080/api/v1/recetas-guardadas/listar
+Accept: application/json
+
+### Actualizar una Receta Guardada por ID
+PUT http://localhost:8080/api/v1/recetas-guardadas/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "usuario": {
+        "userID": 1
+    },
+    "receta": {
+        "recetaID": 1
+    },
+    "fechaHora": "2023-12-01T10:45:00"
+}
+
+### Eliminar una Receta Guardada por ID
+DELETE http://localhost:8080/api/v1/recetas-guardadas/1
+Accept: application/json
