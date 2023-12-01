@@ -1,0 +1,36 @@
+###Crear ingrediente###
+POST http://localhost:8080/api/v1/ingrediente/create
+Content-Type: application/json
+Accept: application/json
+
+{
+    "nombre": "Ejemplo Ingrediente",
+    "tipo": "Especia",
+    "cantidad": 10
+}
+
+###Obtener ingrediente por ID###
+GET http://localhost:8080/api/v1/ingrediente/1
+Accept: application/json
+
+
+###Obtener ingredientes###
+GET http://localhost:8080/api/v1/ingrediente
+Accept: application/json
+
+
+###Actualizar ingrediente por ID###
+
+PUT http://localhost:8080/api/v1/ingrediente/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "nombre": "Ingrediente Actualizado",
+    "tipo": "Especia",
+    "cantidad": 15
+}
+
+###Eliminar ingrediente por ID###
+DELETE http://localhost:8080/api/v1/ingrediente/1
+
